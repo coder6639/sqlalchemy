@@ -21,8 +21,13 @@
                   <td>{{ author.name }}</td>
                   <td>{{ author.surname }}</td>
                   <td>
+                      <a href="/edit/author/{{ author.id }}">
+                        <button style="height:40px;width:100px">Edit</button>
+                      </a>
+                  </td>
+                  <td>
                       <a href="/delete/author/{{ author.id }}">
-                        <button style="height:40px;width:150px">Delete author</button>
+                        <button style="height:40px;width:100px">Delete</button>
                       </a>
                    </td>
                </tr>

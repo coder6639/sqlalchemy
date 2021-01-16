@@ -26,10 +26,16 @@
                   <td>{{ book.available }}</td>
                   <td>{{ book.availability }}</td>
                   <td>
-                      <a href="/delete/book/{{ book.id }}">
-                        <button style="height:40px;width:150px">Delete book</button>
+                      <a href="/edit/book/{{ book.id }}">
+                        <button style="height:40px;width:100px">Edit</button>
                       </a>
                   </td>
+                  <td>
+                      <a href="/delete/book/{{ book.id }}">
+                        <button style="height:40px;width:100px">Delete</button>
+                      </a>
+                  </td>
+
                </tr>
             {% endfor %}
          </tbody>

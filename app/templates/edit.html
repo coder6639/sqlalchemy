@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit item</title>
+</head>
+<body>
+    <h2>Edit chosen item</h2>
+    {% if book %}
+        <table>
+            <thead>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Available?</td>
+                <td>Availability</td>
+            </thead>
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.year }}</td>
+                <td>{{ book.available }}</td>
+                <td>{{ book.availability }}</td>
+            </tr>
+        </table>
+        <br><br>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <table class="bottom" style="width:300px">
+                {% for field in form if field.widget.input_type != "hidden" %}
+                <tr>
+                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                    <th>{{ field }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+            (date format: dd-mm-yyyy)<br>
+            <input type="submit" value="Add">
+        </form>
+    {% endif %}
+    {% if author %}
+        {{ author.name}} {{ author.surname }} <br><br>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <table class="bottom" style="width:280px">
+                {% for field in form if field.widget.input_type != "hidden" %}
+                <tr>
+                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                    <th>{{ field }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" value="Add">
+        </form>
+    {% endif %}
+</body>
+</html>

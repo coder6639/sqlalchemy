@@ -41,6 +41,11 @@
                   <td>{{ item.id }}</td>
                   <td>{{ item.book_id }}</td>
                   <td>{{ item.author_id }}</td>
+                  <td>
+                      <a href="/delete/relation/{{ item.id }}">
+                        <button style="height:40px;width:100px">Delete</button>
+                      </a>
+                  </td>
                </tr>
             {% endfor %}
          </tbody>
