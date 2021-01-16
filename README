@@ -2,11 +2,7 @@ How to use the app?
 
 1. Download and install all the necessary requirements from requirements.txt. Write in the command line:
     "pip3 install -r requirements.txt"
-2. Download "app" folder and all of the files within, as well as other files - .flaskenv, config.py, library.py
-3. Initialize database from command line:
-    "flask db init"
-    The default db file will be created as "booklibrary.db"
-4. To prepare migration of the db, use "flask db migrate", to complete it - "flask db upgrade"
-    Migrations history will be available in "migrations" folder
-5. To open the shell in the command line, use:
-    flask shell
+2. Download files and run routes.py
+3. Booklibrary.db will be created in the main folder of the app
+4. Use web interface to manage your database
+5. Enjoy! :)
