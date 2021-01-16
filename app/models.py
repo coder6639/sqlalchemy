@@ -78,7 +78,7 @@ def add_data(form_type):
 
 def edit_data(item, form_type):
     if form_type == "book":
-        form = BookForm
+        form = BookForm()
         item.title = request.form["title"]
         item.year = request.form["year"]
         item.available = form.data.get("available")
