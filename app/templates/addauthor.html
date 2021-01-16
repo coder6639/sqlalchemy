@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add an author</title>
+</head>
+<body>
+    <h2>Authors table:</h2>
+    <table>
+         <thead>
+            <tr>
+               <th>id</th>
+               <th>Name</th>
+               <th>Surname</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for author in authors %}
+               <tr>
+                  <td>{{ author.id }}</td>
+                  <td>{{ author.name }}</td>
+                  <td>{{ author.surname }}</td>
+                  <td>
+                      <a href="/delete/author/{{ author.id }}">
+                        <button style="height:40px;width:150px">Delete author</button>
+                      </a>
+                   </td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+    <h2>Add an author</h2>
+    <form method="POST" action="/add/author/">
+            {{ form.hidden_tag() }}
+            <table class="bottom" style="width:280px">
+                {% for field in form if field.widget.input_type != "hidden" %}
+                <tr>
+                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                    <th>{{ field }}</th>
+                </tr>
+                {% endfor %}
+            </table>
+            <input type="submit" value="Add">
+    </form>
+    <br>
+    <br>
+    <a href="/"><button style="height:60px;width:150px">Back to homepage</button></a>
+</body>
+</html>
