@@ -1,5 +1,7 @@
-from app.views import book_library_view, add_book_view, add_author_view, add_relation_view
-from app.views import delete_book_view, delete_author_view, delete_relation_view, edit_book_view, edit_author_view
+from app.views import book_library_view, add_book_view
+from app.views import add_author_view, add_relation_view
+from app.views import delete_book_view, delete_author_view
+from app.views import delete_relation_view, edit_book_view, edit_author_view
 from app import app
 
 

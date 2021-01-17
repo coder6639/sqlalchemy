@@ -7,7 +7,8 @@ class Author(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), index=True)
     surname = db.Column(db.String(100), index=True)
-    bookauthors = db.relationship("BookAuthors", backref="author", lazy="dynamic")
+    bookauthors = db.relationship(
+        "BookAuthors", backref="author", lazy="dynamic")
 
     def __str__(self):
         return f"<Author {self.name} {self.surname}>"
@@ -26,7 +27,8 @@ class Book(db.Model):
     year = db.Column(db.Integer, index=True)
     available = db.Column(db.Boolean, index=True)
     availability = db.Column(db.String, index=True)
-    bookauthors = db.relationship("BookAuthors", backref="book", lazy="dynamic")
+    bookauthors = db.relationship(
+        "BookAuthors", backref="book", lazy="dynamic")
 
     def __str__(self):
         return f"<Book {self.title}, {self.year}>"
@@ -45,7 +47,8 @@ class BookAuthors(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
 
     def __str__(self):
-        return f"<Relation {self.id} - Book id: {self.book_id}, Author id: {self.author_id}>"
+        return f"<Relation {self.id} - Book id: {self.book_id}, " \
+               f"Author id: {self.author_id}>"
 
     def delete(self):
         db.session.delete(self)
@@ -64,7 +67,8 @@ def add_data(form_type):
         db.session.add(book)
 
     elif form_type == "author":
-        author = Author(name=request.form["name"], surname=request.form["surname"])
+        author = Author(name=request.form["name"],
+                        surname=request.form["surname"])
         db.session.add(author)
 
     elif form_type == "relation":

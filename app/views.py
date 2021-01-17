@@ -35,7 +35,10 @@ def add_relation_view():
     if request.method == "POST":
         add_data("relation")
         return redirect(url_for("add_relation"))
-    return render_template("bookauthors.html", authors=authors, books=books, bookauthors=bookauthors)
+    return render_template("bookauthors.html",
+                           authors=authors,
+                           books=books,
+                           bookauthors=bookauthors)
 
 
 def delete_book_view(number):
